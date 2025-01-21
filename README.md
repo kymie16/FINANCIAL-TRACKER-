@@ -4,42 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Budget Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #555;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+        input, select {
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
 </head>
 <body>
-    <h1>Personal Budget Tracker</h1>
-    <div>
-        <h2>Add Transaction</h2>
-        <label for="category">Category:</label>
-        <input type="text" id="category" placeholder="e.g., Food, Rent, Utilities">
-        <label for="type">Type:</label>
-        <select id="type">
-            <option value="Income">Income</option>
-            <option value="Expense">Expense</option>
-        </select>
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" placeholder="Enter amount (RM)">
-        <button onclick="addTransaction()">Add Transaction</button>
-    </div>
+    <div class="container">
+        <h1>Personal Budget Tracker</h1>
+        <div>
+            <h2>Add Transaction</h2>
+            <label for="category">Category:</label>
+            <input type="text" id="category" placeholder="e.g., Food, Rent, Utilities">
+            <label for="type">Type:</label>
+            <select id="type">
+                <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
+            </select>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" placeholder="Enter amount (RM)">
+            <button class="button" onclick="addTransaction()">Add Transaction</button>
+        </div>
 
-    <div>
-        <h2>Transactions</h2>
-        <table id="transactions-table" border="1">
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Type</th>
-                    <th>Amount (RM)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Transactions will be displayed here -->
-            </tbody>
-        </table>
-    </div>
+        <div>
+            <h2>Transactions</h2>
+            <table id="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>Amount (RM)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Transactions will be displayed here -->
+                </tbody>
+            </table>
+        </div>
 
-    <div>
-        <h2>Summary</h2>
-        <p id="summary"></p>
+        <div>
+            <h2>Summary</h2>
+            <p id="summary"></p>
+        </div>
     </div>
 
     <script>
